@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using finalproject.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace finalproject
 {
@@ -24,6 +26,9 @@ namespace finalproject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddDbContext<RestaurantContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("RestaurantContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
