@@ -5,12 +5,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Restaurant
-</h1>
+<h1>Restaurants</h1>
 
 <p>
-    <a asp-page="Create">Add Restaurant
-    </a>
+    <a asp-page="Create">Add Restaurant</a>
 </p>
 
 @{
@@ -27,12 +25,14 @@
     }
 }
 
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
-    <li class="page-item @nextDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
-  </ul>
-</nav>
+<div>
+    <nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
+        <li class="page-item @nextDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
+    </ul>
+    </nav>
+</div>
 
 <table class="table">
     <thead>
@@ -110,7 +110,7 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
-    <li class="page-item"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
+    <li class="page-item @nextDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
   </ul>
 </nav>
 

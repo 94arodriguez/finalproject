@@ -28,7 +28,6 @@ namespace finalproject.Pages.Restaurants
 
         [BindProperty(SupportsGet = true)]
         public string CurrentSort {get; set;}
-        public SelectList SortList {get; set;}
 
         public async Task OnGetAsync()
         {
