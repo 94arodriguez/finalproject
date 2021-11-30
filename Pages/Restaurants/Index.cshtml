@@ -30,7 +30,7 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
-    <li class="page-item"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
+    <li class="page-item @nextDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
   </ul>
 </nav>
 
@@ -38,16 +38,44 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Restaurant[0].Name)
+                @{
+                    var firstSort = "firstAsc";
+                    if (Model.NameSort == "firstAsc")
+                    {
+                        firstSort = "firstDesc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-NameSort="@firstSort">@Html.DisplayNameFor(model => model.Restaurant[0].Name)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Restaurant[0].Address)
+                @{
+                    var SecondSort = "SecondAsc";
+                    if (Model.AddressSort == "SecondAsc")
+                    {
+                        SecondSort = "SecondDesc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-AddressSort="@SecondSort">@Html.DisplayNameFor(model => model.Restaurant[0].Address)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Restaurant[0].PhoneNumber)
+                @{
+                    var ThirdSort = "ThirdAsc";
+                    if (Model.PhoneSort == "ThirdAsc")
+                    {
+                        ThirdSort = "ThirdDesc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-PhoneSort="@ThirdSort">@Html.DisplayNameFor(model => model.Restaurant[0].PhoneNumber)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Restaurant[0].Cuisine)
+                @{
+                    var FourthSort = "FourthAsc";
+                    if (Model.CuisineSort == "FourthAsc")
+                    {
+                        FourthSort = "FourthDesc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-CuisineSort="@FourthSort">@Html.DisplayNameFor(model => model.Restaurant[0].Cuisine)</a>
             </th>
             <th></th>
         </tr>

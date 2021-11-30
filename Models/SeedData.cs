@@ -946,7 +946,7 @@ namespace finalproject.Models
                     {
                         Name = "Pinewood",
                         Address = "2223 Austin Ave B, Waco, TX 76701",
-                        PhoneNumber = "254) 262-6130",
+                        PhoneNumber = "(254) 262-6130",
                         Cuisine = "Drinks (coffee shop)",
                         Reviews = new List<Review> {
                             new Review {ReviewNum = 3},

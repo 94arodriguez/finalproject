@@ -18,7 +18,7 @@ namespace finalproject.Models
         [Required]
         public string Address {get; set;}
 
-        [StringLength(10)]
+        [StringLength(25)]
         [Required]
         public string PhoneNumber {get; set;}
 
