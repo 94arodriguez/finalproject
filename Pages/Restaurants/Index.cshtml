@@ -39,43 +39,43 @@
         <tr>
             <th>
                 @{
-                    var firstSort = "firstAsc";
-                    if (Model.NameSort == "firstAsc")
+                    var nameSort = "nameAsc";
+                    if (Model.CurrentSort == "nameAsc")
                     {
-                        firstSort = "firstDesc";
+                        nameSort = "nameDesc";
                     }
                 }
-                <a asp-page="./Index" asp-route-NameSort="@firstSort">@Html.DisplayNameFor(model => model.Restaurant[0].Name)</a>
+                <a asp-page="./Index" asp-route-CurrentSort="@nameSort">@Html.DisplayNameFor(model => model.Restaurant[0].Name)</a>
             </th>
             <th>
                 @{
-                    var SecondSort = "SecondAsc";
-                    if (Model.AddressSort == "SecondAsc")
+                    var addressSort = "addressAsc";
+                    if (Model.CurrentSort == "addressAsc")
                     {
-                        SecondSort = "SecondDesc";
+                        addressSort = "addressDesc";
                     }
                 }
-                <a asp-page="./Index" asp-route-AddressSort="@SecondSort">@Html.DisplayNameFor(model => model.Restaurant[0].Address)</a>
+                <a asp-page="./Index" asp-route-CurrentSort="@addressSort">@Html.DisplayNameFor(model => model.Restaurant[0].Address)</a>
             </th>
             <th>
                 @{
-                    var ThirdSort = "ThirdAsc";
-                    if (Model.PhoneSort == "ThirdAsc")
+                    var phoneSort = "phoneAsc";
+                    if (Model.CurrentSort == "phoneAsc")
                     {
-                        ThirdSort = "ThirdDesc";
+                        phoneSort = "phoneDesc";
                     }
                 }
-                <a asp-page="./Index" asp-route-PhoneSort="@ThirdSort">@Html.DisplayNameFor(model => model.Restaurant[0].PhoneNumber)</a>
+                <a asp-page="./Index" asp-route-CurrentSort="@phoneSort">@Html.DisplayNameFor(model => model.Restaurant[0].PhoneNumber)</a>
             </th>
             <th>
                 @{
-                    var FourthSort = "FourthAsc";
-                    if (Model.CuisineSort == "FourthAsc")
+                    var cuisineSort = "cuisineAsc";
+                    if (Model.CurrentSort == "cuisineAsc")
                     {
-                        FourthSort = "FourthDesc";
+                        cuisineSort = "cuisineDesc";
                     }
                 }
-                <a asp-page="./Index" asp-route-CuisineSort="@FourthSort">@Html.DisplayNameFor(model => model.Restaurant[0].Cuisine)</a>
+                <a asp-page="./Index" asp-route-CurrentSort="@cuisineSort">@Html.DisplayNameFor(model => model.Restaurant[0].Cuisine)</a>
             </th>
             <th></th>
         </tr>

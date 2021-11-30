@@ -27,13 +27,7 @@ namespace finalproject.Pages.Restaurants
         public int MaxPage {get; set;}
 
         [BindProperty(SupportsGet = true)]
-        public string NameSort {get; set;}
-        [BindProperty(SupportsGet = true)]
-        public string AddressSort {get; set;}
-        [BindProperty(SupportsGet = true)]
-        public string PhoneSort {get; set;}
-        [BindProperty(SupportsGet = true)]
-        public string CuisineSort {get; set;}
+        public string CurrentSort {get; set;}
         public SelectList SortList {get; set;}
 
         public async Task OnGetAsync()
@@ -44,44 +38,32 @@ namespace finalproject.Pages.Restaurants
 
             MaxPage = query2 / PageSize;
 
-            switch (NameSort)
+            switch (CurrentSort)
             {
-                case "firstAsc":
+                case "nameAsc":
                     query = query.OrderBy(m => m.Name);
                     break;
-                case "firstDesc":
+                case "nameDesc":
                     query = query.OrderByDescending(m => m.Name);
                     break;
-            }
-
-            switch (AddressSort)
-            {
-                case "SecondAsc":
+                case "addressAsc":
                     query = query.OrderBy(m => m.Address);
                     break;
-                case "SecondDesc":
+                case "addressDesc":
                     query = query.OrderByDescending(m => m.Address);
                     break;
-            }
-
-            switch (PhoneSort)
-            {
-                case "ThirdAsc":
+                case "phoneAsc":
                     query = query.OrderBy(m => m.PhoneNumber);
                     break;
-                case "ThirdDesc":
+                case "phoneDesc":
                     query = query.OrderByDescending(m => m.PhoneNumber);
                     break;
-            }
-
-            switch (CuisineSort)
-            {
-                case "FourthAsc":
+                case "cuisineAsc":
                     query = query.OrderBy(m => m.Cuisine);
                     break;
-                case "FourthDesc":
+                case "cuisineDesc":
                     query = query.OrderByDescending(m => m.Cuisine);
-                    break;
+                    break; 
             }
 
             Restaurant = await query.Skip((PageNum-1)*PageSize).Take(PageSize).ToListAsync();
