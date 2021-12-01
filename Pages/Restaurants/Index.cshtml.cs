@@ -24,7 +24,7 @@ namespace finalproject.Pages.Restaurants
         public int PageNum {get; set;} = 1;
         public int PageSize {get; set;} = 20;
         public int TotalRows {get; set;}
-        public int MaxPage {get; set;}
+        public decimal MaxPage {get; set;}
 
         [BindProperty(SupportsGet = true)]
         public string CurrentSort {get; set;}
@@ -35,7 +35,7 @@ namespace finalproject.Pages.Restaurants
 
             var query2 = _context.Restaurant.Count();
 
-            MaxPage = query2 / PageSize;
+            MaxPage = ((query2 + PageSize - 1) / PageSize);
 
             switch (CurrentSort)
             {
