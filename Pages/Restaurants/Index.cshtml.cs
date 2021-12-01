@@ -28,7 +28,7 @@ namespace finalproject.Pages.Restaurants
 
         [BindProperty(SupportsGet = true)]
         public string CurrentSort {get; set;}
-
+        
         public async Task OnGetAsync()
         {
             var query = _context.Restaurant.Select(m => m);
